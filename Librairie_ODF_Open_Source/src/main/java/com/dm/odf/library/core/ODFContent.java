@@ -29,7 +29,7 @@ public abstract class ODFContent implements IODFContent
 	public abstract MimeType getMimeType();
 
 	@Override
-	public abstract byte[] getData();
+	public abstract byte[] getData() throws Exception;
 
 	//==========================================================================
 	// METHODES

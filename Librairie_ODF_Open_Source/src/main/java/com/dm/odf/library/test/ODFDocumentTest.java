@@ -1,5 +1,7 @@
 package com.dm.odf.library.test;
 
+import java.io.File;
+
 import com.dm.odf.library.core.ODFTextDocument;
 import com.dm.odf.library.interfaces.IODFTextDocument;
 
@@ -30,7 +32,12 @@ public final class ODFDocumentTest
 			System.out.println("Processing...");
 			System.out.println();
 
+			final File directory = new File(System.getProperty("user.home"));
+			final File file      = new File(directory,"Tests/ODF/Demo.odt");
+
 			final IODFTextDocument document = new ODFTextDocument();
+
+			document.save(file);
 
 			System.out.println("Completed OK.");
 			System.out.println();

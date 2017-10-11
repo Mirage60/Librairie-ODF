@@ -1,6 +1,6 @@
 package com.dm.odf.library.core;
 
-import com.dm.odf.library.core.ODFConstants.ODF_DOCUMENT_TYPE;
+import com.dm.odf.library.core.ODFConstants.ODF_DOCUMENT_TYPE_ID;
 import com.dm.odf.library.interfaces.IODFTextDocument;
 
 public final class ODFTextDocument extends ODFDocument implements IODFTextDocument
@@ -22,10 +22,10 @@ public final class ODFTextDocument extends ODFDocument implements IODFTextDocume
 	//==========================================================================
 
 	@Override
-	public final ODF_DOCUMENT_TYPE getDocumentType()
+	public final ODF_DOCUMENT_TYPE_ID getDocumentTypeID()
 	{
 
-		return ODF_DOCUMENT_TYPE.TEXT;
+		return ODF_DOCUMENT_TYPE_ID.TEXT;
 
 	}
 

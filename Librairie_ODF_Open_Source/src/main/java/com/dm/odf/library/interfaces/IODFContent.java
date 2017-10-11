@@ -10,7 +10,7 @@ public interface IODFContent
 	// Accesseurs en lecture
 
 	public MimeType getMimeType();
-	public byte[]   getData();
+	public byte[]   getData() throws Exception;
 
 	// Méthodes
 
