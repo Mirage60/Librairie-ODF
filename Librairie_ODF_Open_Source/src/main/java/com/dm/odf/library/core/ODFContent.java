@@ -3,6 +3,8 @@ package com.dm.odf.library.core;
 import java.io.File;
 import java.io.FileOutputStream;
 
+import javax.activation.MimeType;
+
 import com.dm.odf.library.interfaces.IODFContent;
 
 public abstract class ODFContent implements IODFContent
@@ -22,6 +24,9 @@ public abstract class ODFContent implements IODFContent
 	//==========================================================================
 	// METHODES ABSTRAITES
 	//==========================================================================
+
+	@Override
+	public abstract MimeType getMimeType();
 
 	@Override
 	public abstract byte[] getData();

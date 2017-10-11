@@ -1,10 +1,11 @@
 package com.dm.odf.library.core;
 
+import com.dm.odf.library.core.ODFConstants.ODF_DOCUMENT_TYPE;
 import com.dm.odf.library.interfaces.IODFContentFile;
 import com.dm.odf.library.interfaces.IODFDocument;
 import com.dm.odf.library.interfaces.IODFMimeTypeFile;
 
-public final class ODFDocument implements IODFDocument
+public abstract class ODFDocument implements IODFDocument
 {
 
 	private final IODFContentFile contentFile = new ODFContentFile()
@@ -37,12 +38,19 @@ public final class ODFDocument implements IODFDocument
 	// CONSTRUCTEURS
 	//==========================================================================
 
-	public ODFDocument()
+	protected ODFDocument()
 	{
 
 		super();
 
 	}
+
+	//==========================================================================
+	// METHODES ABSTRAITES
+	//==========================================================================
+
+	@Override
+	public abstract ODF_DOCUMENT_TYPE getDocumentType();
 
 	//==========================================================================
 	// METHODES
