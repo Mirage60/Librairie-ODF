@@ -1,16 +1,16 @@
 package com.dm.odf.library.core;
 
-import com.dm.odf.library.interfaces.IODFContentFile;
 import com.dm.odf.library.interfaces.IODFDocument;
+import com.dm.odf.library.interfaces.IODFMimeTypeFile;
 
-public abstract class ODFContentFile implements IODFContentFile
+public abstract class ODFMimeTypeFile implements IODFMimeTypeFile
 {
 
 	//==========================================================================
 	// CONSTRUCTEURS
 	//==========================================================================
 
-	protected ODFContentFile()
+	protected ODFMimeTypeFile()
 	{
 
 		super();

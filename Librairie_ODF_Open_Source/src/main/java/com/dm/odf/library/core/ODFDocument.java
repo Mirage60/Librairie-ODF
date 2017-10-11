@@ -2,11 +2,25 @@ package com.dm.odf.library.core;
 
 import com.dm.odf.library.interfaces.IODFContentFile;
 import com.dm.odf.library.interfaces.IODFDocument;
+import com.dm.odf.library.interfaces.IODFMimeTypeFile;
 
-public abstract class ODFDocument implements IODFDocument
+public final class ODFDocument implements IODFDocument
 {
 
 	private final IODFContentFile contentFile = new ODFContentFile()
+	{
+
+		@Override
+		public final IODFDocument getDocument()
+		{
+
+			return ODFDocument.this;
+
+		}
+
+	};
+
+	private final IODFMimeTypeFile mimeTypeFile = new ODFMimeTypeFile()
 	{
 
 		@Override
@@ -23,7 +37,7 @@ public abstract class ODFDocument implements IODFDocument
 	// CONSTRUCTEURS
 	//==========================================================================
 
-	protected ODFDocument()
+	public ODFDocument()
 	{
 
 		super();
@@ -34,10 +48,19 @@ public abstract class ODFDocument implements IODFDocument
 	// METHODES
 	//==========================================================================
 
+	@Override
 	public final IODFContentFile getContentFile()
 	{
 
 		return this.contentFile;
+
+	}
+
+	@Override
+	public final IODFMimeTypeFile getMimeTypeFile()
+	{
+
+		return this.mimeTypeFile;
 
 	}
 
