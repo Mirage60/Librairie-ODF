@@ -6,7 +6,7 @@
 		<mirror>
 			<id>mvnrepository.com</id>
 			<name>mvnrepository.com</name>
-			<url>https://mvnrepository.com/artifact/</url>
+			<url>https://mvnrepository.com/artifact/</url> 
 			<mirrorOf>*</mirrorOf>
 		</mirror>
 		<mirror>
