@@ -11,7 +11,9 @@ import com.dm.odf.library.core.ODFConstants.ODF_MIME_TYPE_ID;
 import com.dm.odf.library.interfaces.IODFContent;
 import com.dm.odf.library.interfaces.IODFContentFile;
 import com.dm.odf.library.interfaces.IODFDocument;
+import com.dm.odf.library.interfaces.IODFMetaFile;
 import com.dm.odf.library.interfaces.IODFMimeTypeFile;
+import com.dm.odf.library.interfaces.IODFSettingsFile;
 import com.dm.odf.library.interfaces.IODFStylesFile;
 
 public abstract class ODFDocument implements IODFDocument
@@ -44,6 +46,32 @@ public abstract class ODFDocument implements IODFDocument
 	};
 
 	private final IODFStylesFile stylesFile = new ODFStylesFile()
+	{
+
+		@Override
+		public final IODFDocument getDocument()
+		{
+
+			return ODFDocument.this;
+
+		}
+
+	};
+
+	private final IODFMetaFile metaFile = new ODFMetaFile()
+	{
+
+		@Override
+		public final IODFDocument getDocument()
+		{
+
+			return ODFDocument.this;
+
+		}
+
+	};
+
+	private final IODFSettingsFile settingsFile = new ODFSettingsFile()
 	{
 
 		@Override
@@ -119,6 +147,22 @@ public abstract class ODFDocument implements IODFDocument
 	{
 
 		return this.stylesFile;
+
+	}
+
+	@Override
+	public final IODFMetaFile getMetaFile()
+	{
+
+		return this.metaFile;
+
+	}
+
+	@Override
+	public final IODFSettingsFile getSettingsFile()
+	{
+
+		return this.settingsFile;
 
 	}
 

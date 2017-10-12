@@ -18,6 +18,8 @@ public interface IODFDocument
 	public IODFMimeTypeFile     getMimeTypeFile();
 	public IODFContentFile      getContentFile();
 	public IODFStylesFile       getStylesFile();
+	public IODFMetaFile         getMetaFile();
+	public IODFSettingsFile     getSettingsFile();
 	public IODFContent          getContent();
 
 	// Méthodes
