@@ -4,6 +4,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 import com.dm.odf.library.core.ODFConstants.ODF_MIME_TYPE_ID;
+import com.dm.odf.library.core.ODFConstants.ODF_PART_FILE_ID;
 import com.dm.odf.library.interfaces.IODFContent;
 import com.dm.odf.library.interfaces.IODFElement;
 import com.dm.odf.library.interfaces.IODFMetaFile;
@@ -28,6 +29,14 @@ public abstract class ODFMetaFile extends ODFPartFile implements IODFMetaFile
 	//==========================================================================
 	// METHODES
 	//==========================================================================
+
+	@Override
+	public final ODF_PART_FILE_ID getPartFileID()
+	{
+
+		return ODF_PART_FILE_ID.META;
+
+	}
 
 	@Override
 	public final String getFileName()

@@ -101,6 +101,17 @@ public final class ODFConstants
 
 	}
 
+	public static enum ODF_PART_FILE_ID
+	{
+
+		CONTENT,
+		META,
+		MIMETYPE,
+		SETTINGS,
+		STYLES;
+
+	}
+
 	public static enum ODF_NAMESPACE_ID implements IODFNamespaceID
 	{
 

@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import javax.activation.MimeType;
 
 import com.dm.odf.library.core.ODFConstants.ODF_MIME_TYPE_ID;
+import com.dm.odf.library.core.ODFConstants.ODF_PART_FILE_ID;
 import com.dm.odf.library.interfaces.IODFContent;
 import com.dm.odf.library.interfaces.IODFDocument;
 import com.dm.odf.library.interfaces.IODFMimeTypeFile;
@@ -30,6 +31,14 @@ public abstract class ODFMimeTypeFile extends ODFPartFile implements IODFMimeTyp
 	//==========================================================================
 	// METHODES
 	//==========================================================================
+
+	@Override
+	public final ODF_PART_FILE_ID getPartFileID()
+	{
+
+		return ODF_PART_FILE_ID.MIMETYPE;
+
+	}
 
 	@Override
 	public final String getFileName()
