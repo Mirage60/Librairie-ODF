@@ -7,10 +7,106 @@ import javax.activation.MimeType;
 import com.dm.odf.library.interfaces.IODFAttributeID;
 import com.dm.odf.library.interfaces.IODFDocumentTypeID;
 import com.dm.odf.library.interfaces.IODFElementID;
+import com.dm.odf.library.interfaces.IODFMimeTypeID;
 import com.dm.odf.library.interfaces.IODFNamespaceID;
+
+import javafx.geometry.Pos;
+import javafx.util.Duration;
 
 public final class ODFConstants
 {
+
+	public static final int KO = 1024;
+	public static final int MO = KO * 1000;
+	public static final int GO = MO * 1000;
+
+	public static final Duration NOTIFICATION_DURATION = Duration.seconds(3);
+
+	public static final Pos NOTIFICATION_POSITION = Pos.TOP_RIGHT;
+
+	public static final String VERSION       = "1.0";
+	public static final String NOT_AVAILABLE = "N/A";
+
+	public static final int BUFFER_SIZE = 2048;
+
+	public static final int MIN_PORT_NUMBER = 0;
+	public static final int MAX_PORT_NUMBER = 65535;
+
+	public static final int MAX_FAVICON_SIZE = 192;
+
+	public static final float MIN_WIDTH_RATIO = 0.0f;
+	public static final float MAX_WIDTH_RATIO = 1.0f;
+
+	public static final String EOL = SYSTEM_PROPERTY_ID.LINE_SEPARATOR.getValue();
+
+    public static enum SYSTEM_PROPERTY_ID
+    {
+
+	    USER_NAME        ("user.name"      ),
+		USER_HOME        ("user.home"      ),
+		TEMP_DIRECTORY   ("java.io.tmpdir" ),
+		LINE_SEPARATOR   ("line.separator" ),
+		CLASS_PATH       ("java.class.path"),
+		OPERATING_SYSTEM ("os.name"        );
+
+		private String name = "";
+
+		@SuppressWarnings("hiding")
+		SYSTEM_PROPERTY_ID(final String name)
+		{
+
+		    this.name= name == null ? "" : name.trim();
+
+		}
+
+		public final String getValue()
+		{
+
+		    final String value = "".equals(this.name) ? "" : System.getProperty(this.name);
+
+		    return value == null ? "" : LINE_SEPARATOR.equals(this) ? value : value.trim();
+
+		}
+
+    }
+
+	public static enum ODF_MIME_TYPE_ID implements IODFMimeTypeID
+	{
+
+		TEXT          ("text/plain"),
+		XML           ("text/xml"  ),
+		TEXT_DOCUMENT (""          );
+
+		private MimeType mimeType = null;
+
+		@SuppressWarnings("hiding")
+		ODF_MIME_TYPE_ID(final String mimeType)
+		{
+
+			try
+			{
+
+				this.mimeType = new MimeType(mimeType == null ? "" : mimeType.trim());
+
+			}
+			catch (final Throwable exception)
+			{
+
+				exception.printStackTrace();
+
+			}
+
+		}
+
+		@Override
+		public final MimeType getMimeType()
+		{
+
+			return this.mimeType;
+
+		}
+
+	}
 
 	public static enum ODF_NAMESPACE_ID implements IODFNamespaceID
 	{
@@ -51,26 +147,23 @@ public final class ODFConstants
 	public static enum ODF_DOCUMENT_TYPE_ID implements IODFDocumentTypeID
 	{
 
-		TEXT ("application/vnd.oasis.opendocument.text");
+		TEXT (ODF_MIME_TYPE_ID.TEXT);
 
-		private MimeType mimeType = null;
+		private ODF_MIME_TYPE_ID mimeTypeID = null;
 
 		@SuppressWarnings("hiding")
-		ODF_DOCUMENT_TYPE_ID(final String mimeType)
+		ODF_DOCUMENT_TYPE_ID(final ODF_MIME_TYPE_ID mimeTypeID)
 		{
 
-			try
-			{
+			this.mimeTypeID = mimeTypeID;
 
-				this.mimeType = new MimeType(mimeType == null ? "" : mimeType.trim());
+		}
 
-			}
-			catch (final Throwable exception)
-			{
+		@Override
+		public final ODF_MIME_TYPE_ID getMimeTypeID()
+		{
 
-				exception.printStackTrace();
-
-			}
+			return this.mimeTypeID;
 
 		}
 
@@ -78,7 +171,7 @@ public final class ODFConstants
 		public final MimeType getMimeType()
 		{
 
-			return this.mimeType;
+			return this.mimeTypeID == null ? null : this.mimeTypeID.getMimeType();
 
 		}
 

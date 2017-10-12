@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 
 import javax.activation.MimeType;
 
+import com.dm.odf.library.core.ODFConstants.ODF_MIME_TYPE_ID;
 import com.dm.odf.library.interfaces.IODFContent;
 
 public abstract class ODFContent implements IODFContent
@@ -26,7 +27,7 @@ public abstract class ODFContent implements IODFContent
 	//==========================================================================
 
 	@Override
-	public abstract MimeType getMimeType();
+	public abstract ODF_MIME_TYPE_ID getMimeTypeID();
 
 	@Override
 	public abstract byte[] getData() throws Exception;
@@ -34,6 +35,16 @@ public abstract class ODFContent implements IODFContent
 	//==========================================================================
 	// METHODES
 	//==========================================================================
+
+	@Override
+	public final MimeType getMimeType()
+	{
+
+		final ODF_MIME_TYPE_ID mimeTypeID = this.getMimeTypeID();
+
+		return mimeTypeID == null ? null : mimeTypeID.getMimeType();
+
+	}
 
 	@SuppressWarnings("resource")
 	@Override

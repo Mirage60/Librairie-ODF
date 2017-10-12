@@ -7,6 +7,7 @@ import java.util.zip.ZipOutputStream;
 import javax.activation.MimeType;
 
 import com.dm.odf.library.core.ODFConstants.ODF_DOCUMENT_TYPE_ID;
+import com.dm.odf.library.core.ODFConstants.ODF_MIME_TYPE_ID;
 import com.dm.odf.library.interfaces.IODFContent;
 import com.dm.odf.library.interfaces.IODFContentFile;
 import com.dm.odf.library.interfaces.IODFDocument;
@@ -78,10 +79,20 @@ public abstract class ODFDocument implements IODFDocument
 	//==========================================================================
 
 	@Override
-	public final MimeType getMimeType()
+	public final ODF_MIME_TYPE_ID getMimeTypeID()
 	{
 
 		final ODF_DOCUMENT_TYPE_ID mimeTypeID = this.getDocumentTypeID();
+
+		return mimeTypeID == null ? null : mimeTypeID.getMimeTypeID();
+
+	}
+
+	@Override
+	public final MimeType getMimeType()
+	{
+
+		final ODF_MIME_TYPE_ID mimeTypeID = this.getMimeTypeID();
 
 		return mimeTypeID == null ? null : mimeTypeID.getMimeType();
 
@@ -119,10 +130,10 @@ public abstract class ODFDocument implements IODFDocument
 		{
 
 			@Override
-			public final MimeType getMimeType()
+			public final ODF_MIME_TYPE_ID getMimeTypeID()
 			{
 
-				return ODFDocument.this.getMimeType();
+				return ODFDocument.this.getMimeTypeID();
 
 			}
 

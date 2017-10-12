@@ -3,8 +3,7 @@ package com.dm.odf.library.core;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
-import javax.activation.MimeType;
-
+import com.dm.odf.library.core.ODFConstants.ODF_MIME_TYPE_ID;
 import com.dm.odf.library.interfaces.IODFContent;
 import com.dm.odf.library.interfaces.IODFStylesFile;
 import com.dm.odf.library.xml.ODFXmlContent;
@@ -45,10 +44,10 @@ public abstract class ODFStylesFile extends ODFPartFile implements IODFStylesFil
 		{
 
 			@Override
-			public final MimeType getMimeType()
+			public final ODF_MIME_TYPE_ID getMimeTypeID()
 			{
 
-				return null;
+				return ODF_MIME_TYPE_ID.XML;
 
 			}
 
