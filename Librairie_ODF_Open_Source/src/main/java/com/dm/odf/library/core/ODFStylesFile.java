@@ -6,19 +6,19 @@ import java.nio.charset.StandardCharsets;
 import javax.activation.MimeType;
 
 import com.dm.odf.library.interfaces.IODFContent;
-import com.dm.odf.library.interfaces.IODFContentFile;
+import com.dm.odf.library.interfaces.IODFStylesFile;
 import com.dm.odf.library.xml.ODFXmlContent;
 
-public abstract class ODFContentFile extends ODFPartFile implements IODFContentFile
+public abstract class ODFStylesFile extends ODFPartFile implements IODFStylesFile
 {
 
-	public static final String FILE_NAME = "content.xml";
+	public static final String FILE_NAME = "styles.xml";
 
 	//==========================================================================
 	// CONSTRUCTEURS
 	//==========================================================================
 
-	protected ODFContentFile()
+	protected ODFStylesFile()
 	{
 
 		super();

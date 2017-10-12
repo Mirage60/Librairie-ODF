@@ -1,5 +1,7 @@
 package com.dm.odf.library.core;
 
+import java.net.URL;
+
 import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_NAMESPACE_ID;
 import com.dm.odf.library.interfaces.IODFElement;
@@ -36,6 +38,16 @@ public abstract class ODFElement implements IODFElement
 		final ODF_ELEMENT_ID elementID = this.getElementID();
 
 		return elementID == null ? null : elementID.getNamespaceID();
+
+	}
+
+	@Override
+	public final URL getNamespaceURL()
+	{
+
+		final ODF_NAMESPACE_ID namespaceID = this.getNamespaceID();
+
+		return namespaceID == null ? null : namespaceID.getURL();
 
 	}
 

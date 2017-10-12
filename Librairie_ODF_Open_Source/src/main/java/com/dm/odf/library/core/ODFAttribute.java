@@ -1,5 +1,7 @@
 package com.dm.odf.library.core;
 
+import java.net.URL;
+
 import com.dm.odf.library.core.ODFConstants.ODF_ATTRIBUTE_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_NAMESPACE_ID;
 import com.dm.odf.library.interfaces.IODFAttribute;
@@ -36,6 +38,16 @@ public abstract class ODFAttribute implements IODFAttribute
 		final ODF_ATTRIBUTE_ID attributeID = this.getAttributeID();
 
 		return attributeID == null ? null : attributeID.getNamespaceID();
+
+	}
+
+	@Override
+	public final URL getNamespaceURL()
+	{
+
+		final ODF_NAMESPACE_ID namespaceID = this.getNamespaceID();
+
+		return namespaceID == null ? null : namespaceID.getURL();
 
 	}
 

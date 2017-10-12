@@ -6,7 +6,7 @@ import java.nio.charset.Charset;
 
 import com.dm.odf.library.interfaces.IODFTextContent;
 
-public abstract class ODFTextContent implements IODFTextContent
+public abstract class ODFTextContent extends ODFContent implements IODFTextContent
 {
 
 	//==========================================================================

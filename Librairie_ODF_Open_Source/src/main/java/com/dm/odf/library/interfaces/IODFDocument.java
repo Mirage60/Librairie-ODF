@@ -15,6 +15,7 @@ public interface IODFDocument
 	public MimeType             getMimeType();
 	public IODFMimeTypeFile     getMimeTypeFile();
 	public IODFContentFile      getContentFile();
+	public IODFStylesFile       getStylesFile();
 	public IODFContent          getContent();
 
 	// Méthodes

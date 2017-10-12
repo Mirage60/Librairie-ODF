@@ -2,6 +2,7 @@ package com.dm.odf.library.core;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.util.zip.ZipOutputStream;
 
 import javax.activation.MimeType;
 
@@ -10,6 +11,7 @@ import com.dm.odf.library.interfaces.IODFContent;
 import com.dm.odf.library.interfaces.IODFContentFile;
 import com.dm.odf.library.interfaces.IODFDocument;
 import com.dm.odf.library.interfaces.IODFMimeTypeFile;
+import com.dm.odf.library.interfaces.IODFStylesFile;
 
 public abstract class ODFDocument implements IODFDocument
 {
@@ -28,6 +30,19 @@ public abstract class ODFDocument implements IODFDocument
 	};
 
 	private final IODFMimeTypeFile mimeTypeFile = new ODFMimeTypeFile()
+	{
+
+		@Override
+		public final IODFDocument getDocument()
+		{
+
+			return ODFDocument.this;
+
+		}
+
+	};
+
+	private final IODFStylesFile stylesFile = new ODFStylesFile()
 	{
 
 		@Override
@@ -89,6 +104,14 @@ public abstract class ODFDocument implements IODFDocument
 	}
 
 	@Override
+	public final IODFStylesFile getStylesFile()
+	{
+
+		return this.stylesFile;
+
+	}
+
+	@Override
 	public final IODFContent getContent()
 	{
 
@@ -112,6 +135,20 @@ public abstract class ODFDocument implements IODFDocument
 
 				try
 				{
+
+					final ZipOutputStream archiveStream = new ZipOutputStream(outputStream);
+
+					try
+					{
+
+					}
+					finally
+					{
+
+						archiveStream.flush();
+						archiveStream.close();
+
+					}
 
 				}
 				finally
