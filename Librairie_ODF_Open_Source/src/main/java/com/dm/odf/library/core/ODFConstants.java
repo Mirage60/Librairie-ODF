@@ -2,7 +2,9 @@ package com.dm.odf.library.core;
 
 import javax.activation.MimeType;
 
+import com.dm.odf.library.interfaces.IODFAttributeID;
 import com.dm.odf.library.interfaces.IODFDocumentTypeID;
+import com.dm.odf.library.interfaces.IODFElementID;
 
 public final class ODFConstants
 {
@@ -38,6 +40,56 @@ public final class ODFConstants
 		{
 
 			return this.mimeType;
+
+		}
+
+	}
+
+	public static enum ODF_ELEMENT_ID implements IODFElementID
+	{
+
+		BODY("body");
+
+		private String localName = "";
+
+		@SuppressWarnings("hiding")
+		ODF_ELEMENT_ID(final String localName)
+		{
+
+			this.localName = localName == null ? "" : localName.trim();
+
+		}
+
+		@Override
+		public final String getLocalName()
+		{
+
+			return this.localName;
+
+		}
+
+	}
+
+	public static enum ODF_ATTRIBUTE_ID implements IODFAttributeID
+	{
+
+		NAME("name");
+
+		private String localName = "";
+
+		@SuppressWarnings("hiding")
+		ODF_ATTRIBUTE_ID(final String localName)
+		{
+
+			this.localName = localName == null ? "" : localName.trim();
+
+		}
+
+		@Override
+		public final String getLocalName()
+		{
+
+			return this.localName;
 
 		}
 
