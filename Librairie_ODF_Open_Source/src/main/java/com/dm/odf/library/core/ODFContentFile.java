@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import com.dm.odf.library.core.ODFConstants.ODF_MIME_TYPE_ID;
 import com.dm.odf.library.interfaces.IODFContent;
 import com.dm.odf.library.interfaces.IODFContentFile;
+import com.dm.odf.library.interfaces.IODFElement;
 import com.dm.odf.library.xml.ODFXmlContent;
 
 public abstract class ODFContentFile extends ODFPartFile implements IODFContentFile
@@ -56,6 +57,14 @@ public abstract class ODFContentFile extends ODFPartFile implements IODFContentF
 			{
 
 				return StandardCharsets.UTF_8;
+
+			}
+
+			@Override
+			public final IODFElement getRootElement()
+			{
+
+				return null;
 
 			}
 

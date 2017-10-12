@@ -1,19 +1,18 @@
-package com.dm.odf.library.xml;
+package com.dm.odf.library.core;
 
 import java.io.OutputStreamWriter;
 
-import com.dm.odf.library.core.ODFTextContent;
-import com.dm.odf.library.interfaces.IODFElement;
-import com.dm.odf.library.interfaces.IODFXmlContent;
+import com.dm.odf.library.core.ODFConstants.ODF_ATTRIBUTE_ID;
+import com.dm.odf.library.interfaces.IODFAttributeWriter;
 
-public abstract class ODFXmlContent extends ODFTextContent implements IODFXmlContent
+public abstract class ODFAttributeWriter extends ODFWriter implements IODFAttributeWriter
 {
 
 	//==========================================================================
 	// CONSTRUCTEURS
 	//==========================================================================
 
-	protected ODFXmlContent()
+	protected ODFAttributeWriter()
 	{
 
 		super();
@@ -25,14 +24,17 @@ public abstract class ODFXmlContent extends ODFTextContent implements IODFXmlCon
 	//==========================================================================
 
 	@Override
-	public abstract IODFElement getRootElement();
+	public abstract ODF_ATTRIBUTE_ID getAttributeID();
+
+	@Override
+	public abstract String getValue();
 
 	//==========================================================================
 	// METHODES
 	//==========================================================================
 
 	@Override
-	protected final void write(final OutputStreamWriter writer) throws Exception
+	public final void write(final OutputStreamWriter writer) throws Exception
 	{
 
 		// Sérialisation

@@ -2,22 +2,19 @@ package com.dm.odf.library.core;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStreamWriter;
-import java.net.URL;
 import java.nio.charset.Charset;
 
-import com.dm.odf.library.core.ODFConstants.ODF_ATTRIBUTE_ID;
-import com.dm.odf.library.core.ODFConstants.ODF_NAMESPACE_ID;
-import com.dm.odf.library.interfaces.IODFAttribute;
-import com.dm.odf.library.interfaces.IODFAttributeWriter;
+import com.dm.odf.library.interfaces.IODFNode;
+import com.dm.odf.library.interfaces.IODFWriter;
 
-public abstract class ODFAttribute implements IODFAttribute
+public abstract class ODFNode implements IODFNode
 {
 
 	//==========================================================================
 	// CONSTRUCTEURS
 	//==========================================================================
 
-	protected ODFAttribute()
+	protected ODFNode()
 	{
 
 		super();
@@ -29,83 +26,19 @@ public abstract class ODFAttribute implements IODFAttribute
 	//==========================================================================
 
 	@Override
-	public abstract ODF_ATTRIBUTE_ID getAttributeID();
-
-	@Override
-	public abstract String getValue();
+	public abstract IODFWriter getWriter();
 
 	//==========================================================================
 	// METHODES
 	//==========================================================================
 
 	@Override
-	public final ODF_NAMESPACE_ID getNamespaceID()
-	{
-
-		final ODF_ATTRIBUTE_ID attributeID = this.getAttributeID();
-
-		return attributeID == null ? null : attributeID.getNamespaceID();
-
-	}
-
-	@Override
-	public final URL getNamespaceURL()
-	{
-
-		final ODF_NAMESPACE_ID namespaceID = this.getNamespaceID();
-
-		return namespaceID == null ? null : namespaceID.getURL();
-
-	}
-
-	@Override
-	public final String getLocalName()
-	{
-
-		final ODF_ATTRIBUTE_ID attributeID = this.getAttributeID();
-
-		final String localName = attributeID == null ? "" : attributeID.getLocalName();
-
-		return localName == null ? "" : localName.trim();
-
-	}
-
-	@Override
-	public final IODFAttributeWriter getWriter()
-	{
-
-		return new ODFAttributeWriter()
-		{
-
-			@Override
-			public final ODF_ATTRIBUTE_ID getAttributeID()
-			{
-
-				return ODFAttribute.this.getAttributeID();
-
-			}
-
-			@Override
-			public final String getValue()
-			{
-
-				final String value = ODFAttribute.this.getValue();
-
-				return value == null ? "" : value.trim();
-
-			}
-
-		};
-
-	}
-
-	@Override
 	public final void write(final OutputStreamWriter writer) throws Exception
 	{
 
-		final IODFAttributeWriter attributeWriter = this.getWriter();
+		final IODFWriter nodeWriter = this.getWriter();
 
-		if (attributeWriter == null) throw new Exception("Failed to retrieve ODF attribute writer instance");
+		if (nodeWriter == null) throw new Exception("Failed to retrieve ODF node writer instance");
 
 		// Sérialisation
 
@@ -114,7 +47,7 @@ public abstract class ODFAttribute implements IODFAttribute
 		try
 		{
 
-			attributeWriter.write(writer);
+			nodeWriter.write(writer);
 
 		}
 		finally

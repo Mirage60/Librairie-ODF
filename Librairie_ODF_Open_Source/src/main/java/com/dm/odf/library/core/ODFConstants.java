@@ -10,19 +10,12 @@ import com.dm.odf.library.interfaces.IODFElementID;
 import com.dm.odf.library.interfaces.IODFMimeTypeID;
 import com.dm.odf.library.interfaces.IODFNamespaceID;
 
-import javafx.geometry.Pos;
-import javafx.util.Duration;
-
 public final class ODFConstants
 {
 
 	public static final int KO = 1024;
 	public static final int MO = KO * 1000;
 	public static final int GO = MO * 1000;
-
-	public static final Duration NOTIFICATION_DURATION = Duration.seconds(3);
-
-	public static final Pos NOTIFICATION_POSITION = Pos.TOP_RIGHT;
 
 	public static final String VERSION       = "1.0";
 	public static final String NOT_AVAILABLE = "N/A";
