@@ -1,6 +1,7 @@
 package com.dm.odf.library.core;
 
 import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
+import com.dm.odf.library.core.ODFConstants.ODF_NAMESPACE_ID;
 import com.dm.odf.library.interfaces.IODFElement;
 
 public abstract class ODFElement implements IODFElement
@@ -27,6 +28,16 @@ public abstract class ODFElement implements IODFElement
 	//==========================================================================
 	// METHODES
 	//==========================================================================
+
+	@Override
+	public final ODF_NAMESPACE_ID getNamespaceID()
+	{
+
+		final ODF_ELEMENT_ID elementID = this.getElementID();
+
+		return elementID == null ? null : elementID.getNamespaceID();
+
+	}
 
 	@Override
 	public final String getLocalName()

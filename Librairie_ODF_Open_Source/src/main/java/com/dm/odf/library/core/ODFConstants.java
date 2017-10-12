@@ -1,13 +1,52 @@
 package com.dm.odf.library.core;
 
+import java.net.URL;
+
 import javax.activation.MimeType;
 
 import com.dm.odf.library.interfaces.IODFAttributeID;
 import com.dm.odf.library.interfaces.IODFDocumentTypeID;
 import com.dm.odf.library.interfaces.IODFElementID;
+import com.dm.odf.library.interfaces.IODFNamespaceID;
 
 public final class ODFConstants
 {
+
+	public static enum ODF_NAMESPACE_ID implements IODFNamespaceID
+	{
+
+		;
+
+		private URL url = null;
+
+		@SuppressWarnings("hiding")
+		ODF_NAMESPACE_ID(final String url)
+		{
+
+			try
+			{
+
+				this.url = new URL(url == null ? "" : url.trim());
+
+			}
+			catch (final Throwable exception)
+			{
+
+				exception.printStackTrace();
+
+			}
+
+		}
+
+		@Override
+		public final URL getURL()
+		{
+
+			return this.url;
+
+		}
+
+	}
 
 	public static enum ODF_DOCUMENT_TYPE_ID implements IODFDocumentTypeID
 	{
@@ -48,15 +87,25 @@ public final class ODFConstants
 	public static enum ODF_ELEMENT_ID implements IODFElementID
 	{
 
-		BODY("body");
+		BODY(null,"body");
 
+		private ODF_NAMESPACE_ID namespaceID = null;
 		private String localName = "";
 
 		@SuppressWarnings("hiding")
-		ODF_ELEMENT_ID(final String localName)
+		ODF_ELEMENT_ID(final ODF_NAMESPACE_ID namespaceID,final String localName)
 		{
 
-			this.localName = localName == null ? "" : localName.trim();
+			this.namespaceID = namespaceID;
+			this.localName   = localName == null ? "" : localName.trim();
+
+		}
+
+		@Override
+		public final ODF_NAMESPACE_ID getNamespaceID()
+		{
+
+			return this.namespaceID;
 
 		}
 
@@ -73,15 +122,25 @@ public final class ODFConstants
 	public static enum ODF_ATTRIBUTE_ID implements IODFAttributeID
 	{
 
-		NAME("name");
+		NAME(null,"name");
 
+		private ODF_NAMESPACE_ID namespaceID = null;
 		private String localName = "";
 
 		@SuppressWarnings("hiding")
-		ODF_ATTRIBUTE_ID(final String localName)
+		ODF_ATTRIBUTE_ID(final ODF_NAMESPACE_ID namespaceID,final String localName)
 		{
 
-			this.localName = localName == null ? "" : localName.trim();
+			this.namespaceID = namespaceID;
+			this.localName   = localName == null ? "" : localName.trim();
+
+		}
+
+		@Override
+		public final ODF_NAMESPACE_ID getNamespaceID()
+		{
+
+			return this.namespaceID;
 
 		}
 
