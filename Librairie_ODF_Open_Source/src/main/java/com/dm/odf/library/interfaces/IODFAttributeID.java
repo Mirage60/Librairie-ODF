@@ -9,5 +9,6 @@ public interface IODFAttributeID
 	public String           getPrefix();
 	public String           getLocalName();
 	public String           getName();
+	public IODFAttribute    getAttribute(IODFAttributeValue value);
 
 }
