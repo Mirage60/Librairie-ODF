@@ -1,6 +1,6 @@
 package com.dm.odf.library.interfaces;
 
-public interface IOdfTextSequenceDeclElement extends IODFElement
+public interface IODFTextSequenceDeclElement extends IODFElement
 {
 
 	public IODFAttributeValue getTextName();

@@ -16,7 +16,7 @@ import com.dm.odf.library.core.ODFConstants.ODF_NAMESPACE_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_PART_FILE_ID;
 import com.dm.odf.library.elements.ODFStyleFontFaceElement;
 import com.dm.odf.library.elements.ODFTextParagraphElement;
-import com.dm.odf.library.elements.OdfTextSequenceDeclElement;
+import com.dm.odf.library.elements.ODFTextSequenceDeclElement;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFContent;
 import com.dm.odf.library.interfaces.IODFContentFile;
@@ -476,10 +476,10 @@ public abstract class ODFContentFile extends ODFPartFile implements IODFContentF
 
 			final List<IODFNode> nodes = new ArrayList<>();
 
-			nodes.add(OdfTextSequenceDeclElement.newInstance(0,"Illustration"));
-			nodes.add(OdfTextSequenceDeclElement.newInstance(0,"Table"       ));
-			nodes.add(OdfTextSequenceDeclElement.newInstance(0,"Text"        ));
-			nodes.add(OdfTextSequenceDeclElement.newInstance(0,"Drawing"     ));
+			nodes.add(ODFTextSequenceDeclElement.newInstance(0,"Illustration"));
+			nodes.add(ODFTextSequenceDeclElement.newInstance(0,"Table"       ));
+			nodes.add(ODFTextSequenceDeclElement.newInstance(0,"Text"        ));
+			nodes.add(ODFTextSequenceDeclElement.newInstance(0,"Drawing"     ));
 
 			return Collections.unmodifiableList(nodes);
 

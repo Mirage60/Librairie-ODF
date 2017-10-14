@@ -11,8 +11,9 @@ import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFElementWriter;
 import com.dm.odf.library.interfaces.IODFNode;
+import com.dm.odf.library.xml.ODFXmlWriter;
 
-public abstract class ODFElementWriter extends ODFWriter implements IODFElementWriter
+public abstract class ODFElementWriter extends ODFXmlWriter implements IODFElementWriter
 {
 
 	//==========================================================================

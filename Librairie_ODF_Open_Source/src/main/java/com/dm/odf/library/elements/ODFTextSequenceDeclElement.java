@@ -12,16 +12,16 @@ import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFElement;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFNode;
-import com.dm.odf.library.interfaces.IOdfTextSequenceDeclElement;
+import com.dm.odf.library.interfaces.IODFTextSequenceDeclElement;
 
-public abstract class OdfTextSequenceDeclElement extends ODFElement implements IOdfTextSequenceDeclElement
+public abstract class ODFTextSequenceDeclElement extends ODFElement implements IODFTextSequenceDeclElement
 {
 
 	//==========================================================================
 	// CONSTRUCTEURS
 	//==========================================================================
 
-	private OdfTextSequenceDeclElement()
+	private ODFTextSequenceDeclElement()
 	{
 
 		super();
@@ -79,12 +79,12 @@ public abstract class OdfTextSequenceDeclElement extends ODFElement implements I
 
 	}
 
-	public static final IOdfTextSequenceDeclElement newInstance(final int displayOutlineLevel,final String name)
+	public static final IODFTextSequenceDeclElement newInstance(final int displayOutlineLevel,final String name)
 	{
 
 		if (displayOutlineLevel < 0) throw new IllegalArgumentException("Unexpected display outline level value [" + String.valueOf(displayOutlineLevel) + "]");
 
-		return new OdfTextSequenceDeclElement()
+		return new ODFTextSequenceDeclElement()
 		{
 
 			@Override

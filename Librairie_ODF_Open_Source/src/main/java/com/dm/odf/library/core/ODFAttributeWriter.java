@@ -5,8 +5,9 @@ import java.io.OutputStreamWriter;
 import com.dm.odf.library.core.ODFConstants.ODF_ATTRIBUTE_ID;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFAttributeWriter;
+import com.dm.odf.library.xml.ODFXmlWriter;
 
-public abstract class ODFAttributeWriter extends ODFWriter implements IODFAttributeWriter
+public abstract class ODFAttributeWriter extends ODFXmlWriter implements IODFAttributeWriter
 {
 
 	//==========================================================================

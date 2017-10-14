@@ -266,16 +266,23 @@ public final class ODFConstants
 	public static enum ODF_ELEMENT_ID implements IODFElementID
 	{
 
-		OFFICE_DOCUMENT_CONTENT (ODF_NAMESPACE_ID.OFFICE ,"document-content"),
-		OFFICE_SCRIPTS          (ODF_NAMESPACE_ID.OFFICE ,"scripts"         ),
-		OFFICE_FONT_FACE_DECLS  (ODF_NAMESPACE_ID.OFFICE ,"font-face-decls" ),
-		OFFICE_AUTOMATIC_STYLES (ODF_NAMESPACE_ID.OFFICE ,"automatic-styles"),
-		OFFICE_BODY             (ODF_NAMESPACE_ID.OFFICE ,"body"            ),
-		OFFICE_TEXT             (ODF_NAMESPACE_ID.OFFICE ,"text"            ),
-		STYLE_FONT_FACE         (ODF_NAMESPACE_ID.STYLE  ,"font-face"       ),
-		TEXT_SEQUENCE_DECLS     (ODF_NAMESPACE_ID.TEXT   ,"sequence-decls"  ),
-		TEXT_SEQUENCE_DECL      (ODF_NAMESPACE_ID.TEXT   ,"sequence-decl"   ),
-		TEXT_P                  (ODF_NAMESPACE_ID.TEXT   ,"p"               );
+		OFFICE_DOCUMENT_CONTENT         (ODF_NAMESPACE_ID.OFFICE ,"document-content"           ),
+		OFFICE_SCRIPTS                  (ODF_NAMESPACE_ID.OFFICE ,"scripts"                    ),
+		OFFICE_FONT_FACE_DECLS          (ODF_NAMESPACE_ID.OFFICE ,"font-face-decls"            ),
+		OFFICE_AUTOMATIC_STYLES         (ODF_NAMESPACE_ID.OFFICE ,"automatic-styles"           ),
+		OFFICE_BODY                     (ODF_NAMESPACE_ID.OFFICE ,"body"                       ),
+		OFFICE_TEXT                     (ODF_NAMESPACE_ID.OFFICE ,"text"                       ),
+		OFFICE_STYLES                   (ODF_NAMESPACE_ID.OFFICE ,"styles"                     ),
+		OFFICE_MASTER_STYLES            (ODF_NAMESPACE_ID.OFFICE ,"master-styles"              ),
+		STYLE_FONT_FACE                 (ODF_NAMESPACE_ID.STYLE  ,"font-face"                  ),
+		STYLE_DEFAULT_STYLE             (ODF_NAMESPACE_ID.STYLE  ,"default-style"              ),
+		STYLE_STYLE                     (ODF_NAMESPACE_ID.STYLE  ,"style"                      ),
+		TEXT_SEQUENCE_DECLS             (ODF_NAMESPACE_ID.TEXT   ,"sequence-decls"             ),
+		TEXT_SEQUENCE_DECL              (ODF_NAMESPACE_ID.TEXT   ,"sequence-decl"              ),
+		TEXT_OUTLINE_STYLE              (ODF_NAMESPACE_ID.TEXT   ,"outline-style"              ),
+		TEXT_NOTES_CONFIGURATION        (ODF_NAMESPACE_ID.TEXT   ,"notes-configuration"        ),
+		TEXT_LINENUMBERING_CONGIRUATION (ODF_NAMESPACE_ID.TEXT   ,"linenumbering-configuration"),
+		TEXT_P                          (ODF_NAMESPACE_ID.TEXT   ,"p"                          );
 
 		private ODF_NAMESPACE_ID namespaceID = null;
 		private String localName = "";

@@ -11,17 +11,17 @@ import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFElement;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFNode;
-import com.dm.odf.library.interfaces.IOdfTextSequenceDeclElement;
-import com.dm.odf.library.interfaces.IOdfTextSequenceDeclsElement;
+import com.dm.odf.library.interfaces.IODFTextSequenceDeclElement;
+import com.dm.odf.library.interfaces.IODFTextSequenceDeclsElement;
 
-public abstract class OdfTextSequenceDeclsElement extends ODFElement implements IOdfTextSequenceDeclsElement
+public abstract class ODFTextSequenceDeclsElement extends ODFElement implements IODFTextSequenceDeclsElement
 {
 
 	//==========================================================================
 	// CONSTRUCTEURS
 	//==========================================================================
 
-	protected OdfTextSequenceDeclsElement()
+	protected ODFTextSequenceDeclsElement()
 	{
 
 		super();
@@ -33,7 +33,7 @@ public abstract class OdfTextSequenceDeclsElement extends ODFElement implements 
 	//==========================================================================
 
 	@Override
-	public abstract List<IOdfTextSequenceDeclElement> getElements();
+	public abstract List<IODFTextSequenceDeclElement> getElements();
 
 	//==========================================================================
 	// METHODES
@@ -59,7 +59,7 @@ public abstract class OdfTextSequenceDeclsElement extends ODFElement implements 
 	public final List<IODFNode> getNodes()
 	{
 
-		final List<IOdfTextSequenceDeclElement> elements = this.getElements();
+		final List<IODFTextSequenceDeclElement> elements = this.getElements();
 
 		final List<IODFNode> nodes = new ArrayList<>();
 
