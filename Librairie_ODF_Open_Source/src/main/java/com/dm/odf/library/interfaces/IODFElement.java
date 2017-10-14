@@ -14,7 +14,9 @@ public interface IODFElement extends IODFNode
 	public ODF_NAMESPACE_ID             getNamespaceID();
 	public URL                          getNamespaceURL();
 	public ODF_ELEMENT_ID               getElementID();
+	public String                       getPrefix();
 	public String                       getLocalName();
+	public String                       getName();
 	public Map<ODF_ATTRIBUTE_ID,String> getAttributeMap();
 	public List<IODFAttribute>          getAttributes();
 	public List<IODFNode>               getNodes();

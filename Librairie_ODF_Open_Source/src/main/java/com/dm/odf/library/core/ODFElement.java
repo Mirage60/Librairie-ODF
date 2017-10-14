@@ -59,6 +59,30 @@ public abstract class ODFElement extends ODFNode implements IODFElement
 	}
 
 	@Override
+	public final String getPrefix()
+	{
+
+		final ODF_ELEMENT_ID elementID = this.getElementID();
+
+		final String prefix = elementID == null ? null : elementID.getPrefix();
+
+		return prefix == null ? "" : prefix.trim();
+
+	}
+
+	@Override
+	public final String getName()
+	{
+
+		final ODF_ELEMENT_ID elementID = this.getElementID();
+
+		final String name = elementID == null ? null : elementID.getName();
+
+		return name == null ? "" : name.trim();
+
+	}
+
+	@Override
 	public final URL getNamespaceURL()
 	{
 

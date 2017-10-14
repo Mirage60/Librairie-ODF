@@ -59,6 +59,18 @@ public abstract class ODFAttribute implements IODFAttribute
 	}
 
 	@Override
+	public final String getPrefix()
+	{
+
+		final ODF_ATTRIBUTE_ID attributeID = this.getAttributeID();
+
+		final String prefix = attributeID == null ? null : attributeID.getPrefix();
+
+		return prefix == null ? "" : prefix.trim();
+
+	}
+
+	@Override
 	public final String getLocalName()
 	{
 
@@ -67,6 +79,18 @@ public abstract class ODFAttribute implements IODFAttribute
 		final String localName = attributeID == null ? "" : attributeID.getLocalName();
 
 		return localName == null ? "" : localName.trim();
+
+	}
+
+	@Override
+	public final String getName()
+	{
+
+		final ODF_ATTRIBUTE_ID attributeID = this.getAttributeID();
+
+		final String name = attributeID == null ? null : attributeID.getName();
+
+		return name == null ? "" : name.trim();
 
 	}
 

@@ -6,6 +6,8 @@ public interface IODFAttributeID
 {
 
 	public ODF_NAMESPACE_ID getNamespaceID();
+	public String           getPrefix();
 	public String           getLocalName();
+	public String           getName();
 
 }

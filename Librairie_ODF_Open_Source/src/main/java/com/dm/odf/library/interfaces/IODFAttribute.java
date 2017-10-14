@@ -14,7 +14,9 @@ public interface IODFAttribute
 	public ODF_NAMESPACE_ID    getNamespaceID();
 	public URL                 getNamespaceURL();
 	public ODF_ATTRIBUTE_ID    getAttributeID();
+	public String              getPrefix();
 	public String              getLocalName();
+	public String              getName();
 	public String              getValue();
 	public IODFAttributeWriter getWriter();
 

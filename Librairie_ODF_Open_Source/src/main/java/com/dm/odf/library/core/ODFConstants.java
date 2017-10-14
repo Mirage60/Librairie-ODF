@@ -251,10 +251,30 @@ public final class ODFConstants
 		}
 
 		@Override
+		public final String getPrefix()
+		{
+
+			final String prefix = this.namespaceID == null ? "" : this.namespaceID.getPrefix();
+
+			return prefix == null ? "" : prefix.trim();
+
+		}
+
+		@Override
 		public final String getLocalName()
 		{
 
 			return this.localName;
+
+		}
+
+		@Override
+		public final String getName()
+		{
+
+			final String prefix = this.getPrefix();
+
+			return ("".equals(prefix) ? "" : prefix + ":") + this.localName;
 
 		}
 
@@ -286,10 +306,30 @@ public final class ODFConstants
 		}
 
 		@Override
+		public final String getPrefix()
+		{
+
+			final String prefix = this.namespaceID == null ? "" : this.namespaceID.getPrefix();
+
+			return prefix == null ? "" : prefix.trim();
+
+		}
+
+		@Override
 		public final String getLocalName()
 		{
 
 			return this.localName;
+
+		}
+
+		@Override
+		public final String getName()
+		{
+
+			final String prefix = this.getPrefix();
+
+			return ("".equals(prefix) ? "" : prefix + ":") + this.localName;
 
 		}
 
