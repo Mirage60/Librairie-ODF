@@ -9,8 +9,8 @@ import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 public interface IODFElementWriter extends IODFWriter
 {
 
-	public ODF_ELEMENT_ID               getElementID();
-	public Map<ODF_ATTRIBUTE_ID,String> getAttributeMap();
-	public List<IODFNode>               getNodes();
+	public ODF_ELEMENT_ID                           getElementID();
+	public Map<ODF_ATTRIBUTE_ID,IODFAttributeValue> getAttributeMap() throws Exception;
+	public List<IODFNode>                           getNodes() throws Exception;
 
 }

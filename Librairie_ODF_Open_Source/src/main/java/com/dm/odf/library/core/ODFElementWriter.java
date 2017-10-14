@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.dm.odf.library.core.ODFConstants.ODF_ATTRIBUTE_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
+import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFElementWriter;
 import com.dm.odf.library.interfaces.IODFNode;
 
@@ -31,10 +32,10 @@ public abstract class ODFElementWriter extends ODFWriter implements IODFElementW
 	public abstract ODF_ELEMENT_ID getElementID();
 
 	@Override
-	public abstract Map<ODF_ATTRIBUTE_ID,String> getAttributeMap();
+	public abstract Map<ODF_ATTRIBUTE_ID,IODFAttributeValue> getAttributeMap() throws Exception;
 
 	@Override
-	public abstract List<IODFNode> getNodes();
+	public abstract List<IODFNode> getNodes() throws Exception;
 
 	//==========================================================================
 	// METHODES

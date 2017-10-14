@@ -3,6 +3,7 @@ package com.dm.odf.library.core;
 import java.io.OutputStreamWriter;
 
 import com.dm.odf.library.core.ODFConstants.ODF_ATTRIBUTE_ID;
+import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFAttributeWriter;
 
 public abstract class ODFAttributeWriter extends ODFWriter implements IODFAttributeWriter
@@ -27,7 +28,7 @@ public abstract class ODFAttributeWriter extends ODFWriter implements IODFAttrib
 	public abstract ODF_ATTRIBUTE_ID getAttributeID();
 
 	@Override
-	public abstract String getValue();
+	public abstract IODFAttributeValue getValue();
 
 	//==========================================================================
 	// METHODES

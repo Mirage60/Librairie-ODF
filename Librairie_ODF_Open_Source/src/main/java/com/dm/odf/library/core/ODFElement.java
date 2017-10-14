@@ -13,6 +13,7 @@ import com.dm.odf.library.core.ODFConstants.ODF_ATTRIBUTE_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_NAMESPACE_ID;
 import com.dm.odf.library.interfaces.IODFAttribute;
+import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFElement;
 import com.dm.odf.library.interfaces.IODFElementWriter;
 import com.dm.odf.library.interfaces.IODFNode;
@@ -39,10 +40,10 @@ public abstract class ODFElement extends ODFNode implements IODFElement
 	public abstract ODF_ELEMENT_ID getElementID();
 
 	@Override
-	public abstract Map<ODF_ATTRIBUTE_ID,String> getAttributeMap();
+	public abstract Map<ODF_ATTRIBUTE_ID,IODFAttributeValue> getAttributeMap() throws Exception;
 
 	@Override
-	public abstract List<IODFNode> getNodes();
+	public abstract List<IODFNode> getNodes() throws Exception;
 
 	//==========================================================================
 	// METHODES
@@ -105,10 +106,10 @@ public abstract class ODFElement extends ODFNode implements IODFElement
 	}
 
 	@Override
-	public final List<IODFAttribute> getAttributes()
+	public final List<IODFAttribute> getAttributes() throws Exception
 	{
 
-		final Map<ODF_ATTRIBUTE_ID,String> map = this.getAttributeMap();
+		final Map<ODF_ATTRIBUTE_ID,IODFAttributeValue> map = this.getAttributeMap();
 
 		final List<IODFAttribute> attributes = new ArrayList<>();
 
@@ -124,7 +125,7 @@ public abstract class ODFElement extends ODFNode implements IODFElement
 
 				final ODF_ATTRIBUTE_ID attributeID = iterator.next();
 
-				final String value = map.get(attributeID);
+				final IODFAttributeValue value = map.get(attributeID);
 
 				attributes.add(new ODFAttribute()
 				{
@@ -138,10 +139,10 @@ public abstract class ODFElement extends ODFNode implements IODFElement
 					}
 
 					@Override
-					public final String getValue()
+					public final IODFAttributeValue getValue()
 					{
 
-						return value == null ? "" : value.trim();
+						return value;
 
 					}
 
@@ -171,17 +172,17 @@ public abstract class ODFElement extends ODFNode implements IODFElement
 			}
 
 			@Override
-			public final Map<ODF_ATTRIBUTE_ID,String> getAttributeMap()
+			public final Map<ODF_ATTRIBUTE_ID,IODFAttributeValue> getAttributeMap() throws Exception
 			{
 
-				final Map<ODF_ATTRIBUTE_ID,String> attributes = ODFElement.this.getAttributeMap();
+				final Map<ODF_ATTRIBUTE_ID,IODFAttributeValue> attributes = ODFElement.this.getAttributeMap();
 
 				return Collections.unmodifiableMap(attributes == null ? new Hashtable<>() : attributes);
 
 			}
 
 			@Override
-			public final List<IODFNode> getNodes()
+			public final List<IODFNode> getNodes() throws Exception
 			{
 
 				final List<IODFNode> nodes = ODFElement.this.getNodes();

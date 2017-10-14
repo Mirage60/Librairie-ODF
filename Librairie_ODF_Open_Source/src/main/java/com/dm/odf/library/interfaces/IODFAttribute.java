@@ -17,7 +17,7 @@ public interface IODFAttribute
 	public String              getPrefix();
 	public String              getLocalName();
 	public String              getName();
-	public String              getValue();
+	public IODFAttributeValue  getValue();
 	public IODFAttributeWriter getWriter();
 
 	// Méthodes

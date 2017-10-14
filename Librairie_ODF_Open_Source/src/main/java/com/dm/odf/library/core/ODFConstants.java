@@ -190,6 +190,44 @@ public final class ODFConstants
 
 		}
 
+		public static final ODF_NAMESPACE_ID findByPrefix(final String prefix)
+		{
+
+			final String key = prefix == null ? "" : prefix.trim();
+
+			if ("".equals(key)) return null;
+
+			for (final ODF_NAMESPACE_ID enumValue : ODF_NAMESPACE_ID.values())
+			{
+
+				assert enumValue != null : "Unexpected null enum value";
+
+				if (key.equals(enumValue.getPrefix())) return enumValue;
+
+			}
+
+			return null;
+
+		}
+
+		public static final ODF_NAMESPACE_ID findByURL(final URL url)
+		{
+
+			if (url == null) return null;
+
+			for (final ODF_NAMESPACE_ID enumValue : ODF_NAMESPACE_ID.values())
+			{
+
+				assert enumValue != null : "Unexpected null enum value";
+
+				if (url.equals(enumValue.getURL())) return enumValue;
+
+			}
+
+			return null;
+
+		}
+
 	}
 
 	public static enum ODF_DOCUMENT_TYPE_ID implements IODFDocumentTypeID
@@ -228,7 +266,16 @@ public final class ODFConstants
 	public static enum ODF_ELEMENT_ID implements IODFElementID
 	{
 
-		BODY(null,"body");
+		OFFICE_DOCUMENT_CONTENT (ODF_NAMESPACE_ID.OFFICE ,"document-content"),
+		OFFICE_SCRIPTS          (ODF_NAMESPACE_ID.OFFICE ,"scripts"         ),
+		OFFICE_FONT_FACE_DECLS  (ODF_NAMESPACE_ID.OFFICE ,"font-face-decls" ),
+		OFFICE_AUTOMATIC_STYLES (ODF_NAMESPACE_ID.OFFICE ,"automatic-styles"),
+		OFFICE_BODY             (ODF_NAMESPACE_ID.OFFICE ,"body"            ),
+		OFFICE_TEXT             (ODF_NAMESPACE_ID.OFFICE ,"text"            ),
+		STYLE_FONT_FACE         (ODF_NAMESPACE_ID.STYLE  ,"font-face"       ),
+		TEXT_SEQUENCE_DECLS     (ODF_NAMESPACE_ID.TEXT   ,"sequence-decls"  ),
+		TEXT_SEQUENCE_DECL      (ODF_NAMESPACE_ID.TEXT   ,"sequence-decl"   ),
+		TEXT_P                  (ODF_NAMESPACE_ID.TEXT   ,"p"               );
 
 		private ODF_NAMESPACE_ID namespaceID = null;
 		private String localName = "";
@@ -283,17 +330,70 @@ public final class ODFConstants
 	public static enum ODF_ATTRIBUTE_ID implements IODFAttributeID
 	{
 
-		NAME(null,"name");
+		// Espaces de noms
 
-		private ODF_NAMESPACE_ID namespaceID = null;
+		XMLNS_OFFICE    (ODF_NAMESPACE_ID.OFFICE   ),
+		XMLNS_STYLE     (ODF_NAMESPACE_ID.STYLE    ),
+		XMLNS_TEXT      (ODF_NAMESPACE_ID.TEXT     ),
+		XMLNS_TABLE     (ODF_NAMESPACE_ID.TABLE    ),
+		XMLNS_DRAW      (ODF_NAMESPACE_ID.DRAW     ),
+		XMLNS_FO        (ODF_NAMESPACE_ID.FO       ),
+		XMLNS_XLINK     (ODF_NAMESPACE_ID.XLINK    ),
+		XMLNS_DC        (ODF_NAMESPACE_ID.DC       ),
+		XMLNS_META      (ODF_NAMESPACE_ID.META     ),
+		XMLNS_NUMBER    (ODF_NAMESPACE_ID.NUMBER   ),
+		XMLNS_SVG       (ODF_NAMESPACE_ID.SVG      ),
+		XMLNS_CHART     (ODF_NAMESPACE_ID.CHART    ),
+		XMLNS_DR3D      (ODF_NAMESPACE_ID.DR3D     ),
+		XMLNS_MATH      (ODF_NAMESPACE_ID.MATH     ),
+		XMLNS_FORM      (ODF_NAMESPACE_ID.FORM     ),
+		XMLNS_SCRIPT    (ODF_NAMESPACE_ID.SCRIPT   ),
+		XMLNS_OOO       (ODF_NAMESPACE_ID.OOO      ),
+		XMLNS_OOOW      (ODF_NAMESPACE_ID.OOOW     ),
+		XMLNS_OOOC      (ODF_NAMESPACE_ID.OOOC     ),
+		XMLNS_DOM       (ODF_NAMESPACE_ID.DOM      ),
+		XMLNS_XFORMS    (ODF_NAMESPACE_ID.XFORMS   ),
+		XMLNS_XSD       (ODF_NAMESPACE_ID.XSD      ),
+		XMLNS_XSI       (ODF_NAMESPACE_ID.XSI      ),
+		XMLNS_RPT       (ODF_NAMESPACE_ID.RPT      ),
+		XMLNS_OF        (ODF_NAMESPACE_ID.OF       ),
+		XMLNS_XHTML     (ODF_NAMESPACE_ID.XHTML    ),
+		XMLNS_GRDDL     (ODF_NAMESPACE_ID.GRDDL    ),
+		XMLNS_OFFICEOOO (ODF_NAMESPACE_ID.OFFICEOOO),
+		XMLNS_TABLEOOO  (ODF_NAMESPACE_ID.TABLEOOO ),
+		XMLNS_DRAWOOO   (ODF_NAMESPACE_ID.DRAWOOO  ),
+		XMLNS_CALCEXT   (ODF_NAMESPACE_ID.CALCEXT  ),
+		XMLNS_LOEXT     (ODF_NAMESPACE_ID.LOEXT    ),
+		XMLNS_FIELD     (ODF_NAMESPACE_ID.FIELD    ),
+		XMLNS_FORMX     (ODF_NAMESPACE_ID.FORMX    ),
+		XMLNS_CSS3T     (ODF_NAMESPACE_ID.CSS3T    ),
+
+		// Attributs
+
+		OFFICE_VERSION            (ODF_NAMESPACE_ID.OFFICE ,"version"            ),
+		STYLE_NAME                (ODF_NAMESPACE_ID.STYLE  ,"name"               ),
+		STYLE_FONT_FAMILY_GENERIC (ODF_NAMESPACE_ID.STYLE  ,"font-family-generic"),
+		STYLE_FONT_PITCH          (ODF_NAMESPACE_ID.STYLE  ,"font-pitch"         ),
+		SVG_FONT_FAMILY           (ODF_NAMESPACE_ID.SVG    ,"font-family"        ),
+		TEXT_STYLE_NAME           (ODF_NAMESPACE_ID.TEXT   ,"style-name"         );
+
+		private String prefix = null;
 		private String localName = "";
 
 		@SuppressWarnings("hiding")
 		ODF_ATTRIBUTE_ID(final ODF_NAMESPACE_ID namespaceID,final String localName)
 		{
 
-			this.namespaceID = namespaceID;
-			this.localName   = localName == null ? "" : localName.trim();
+			this.prefix    = namespaceID.getPrefix();
+			this.localName = localName == null ? "" : localName .trim();
+
+		}
+
+		ODF_ATTRIBUTE_ID(final ODF_NAMESPACE_ID namespaceID)
+		{
+
+			this.prefix    = "xmlns";
+			this.localName = namespaceID.getPrefix();
 
 		}
 
@@ -301,7 +401,7 @@ public final class ODFConstants
 		public final ODF_NAMESPACE_ID getNamespaceID()
 		{
 
-			return this.namespaceID;
+			return ODF_NAMESPACE_ID.findByPrefix(this.getPrefix());
 
 		}
 
@@ -309,9 +409,7 @@ public final class ODFConstants
 		public final String getPrefix()
 		{
 
-			final String prefix = this.namespaceID == null ? "" : this.namespaceID.getPrefix();
-
-			return prefix == null ? "" : prefix.trim();
+			return this.prefix == null ? "" : this.prefix.trim();
 
 		}
 
@@ -327,9 +425,7 @@ public final class ODFConstants
 		public final String getName()
 		{
 
-			final String prefix = this.getPrefix();
-
-			return ("".equals(prefix) ? "" : prefix + ":") + this.localName;
+			return "".equals(this.localName) ? "" : ("".equals(this.prefix) ? "" : this.prefix + ":") + this.localName;
 
 		}
 

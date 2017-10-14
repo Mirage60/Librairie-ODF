@@ -8,6 +8,7 @@ import java.nio.charset.Charset;
 import com.dm.odf.library.core.ODFConstants.ODF_ATTRIBUTE_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_NAMESPACE_ID;
 import com.dm.odf.library.interfaces.IODFAttribute;
+import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFAttributeWriter;
 
 public abstract class ODFAttribute implements IODFAttribute
@@ -32,7 +33,7 @@ public abstract class ODFAttribute implements IODFAttribute
 	public abstract ODF_ATTRIBUTE_ID getAttributeID();
 
 	@Override
-	public abstract String getValue();
+	public abstract IODFAttributeValue getValue();
 
 	//==========================================================================
 	// METHODES
@@ -110,12 +111,10 @@ public abstract class ODFAttribute implements IODFAttribute
 			}
 
 			@Override
-			public final String getValue()
+			public final IODFAttributeValue getValue()
 			{
 
-				final String value = ODFAttribute.this.getValue();
-
-				return value == null ? "" : value.trim();
+				return ODFAttribute.this.getValue();
 
 			}
 

@@ -1,5 +1,6 @@
 package com.dm.odf.library.core;
 
+import com.dm.odf.library.core.ODFConstants.ODF_DOCUMENT_TYPE_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_PART_FILE_ID;
 import com.dm.odf.library.interfaces.IODFContent;
 import com.dm.odf.library.interfaces.IODFDocument;
@@ -34,5 +35,19 @@ public abstract class ODFPartFile implements IODFPartFile
 
 	@Override
 	public abstract IODFContent getContent();
+
+	//==========================================================================
+	// METHODES
+	//==========================================================================
+
+	@Override
+	public final ODF_DOCUMENT_TYPE_ID getDocumentTypeID()
+	{
+
+		final IODFDocument document = this.getDocument();
+
+		return document == null ? null : document.getDocumentTypeID();
+
+	}
 
 }
