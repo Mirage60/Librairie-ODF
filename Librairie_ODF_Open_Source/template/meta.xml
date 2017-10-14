@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document-meta xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+	xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:ooo="http://openoffice.org/2004/office"
+	xmlns:grddl="http://www.w3.org/2003/g/data-view#" office:version="1.2">
+	<office:meta>
+		<meta:creation-date>2017-10-12T22:21:13.799000000</meta:creation-date>
+		<meta:editing-duration>P0D</meta:editing-duration>
+		<meta:editing-cycles>1</meta:editing-cycles>
+		<meta:generator>LibreOffice/5.3.6.1$Windows_X86_64
+			LibreOffice_project/686f202eff87ef707079aeb7f485847613344eb7
+		</meta:generator>
+		<meta:document-statistic meta:table-count="0"
+			meta:image-count="0" meta:object-count="0" meta:page-count="1"
+			meta:paragraph-count="0" meta:word-count="0" meta:character-count="0"
+			meta:non-whitespace-character-count="0" />
+		<meta:template xlink:type="simple" xlink:actuate="onRequest"
+			xlink:title="Modèle" xlink:href="file:///C:/Users/Didier/Documents/Modèle.ott"
+			meta:date="2017-10-12T22:21:04.882000000" />
+	</office:meta>
+</office:document-meta>

@@ -5,6 +5,7 @@ import java.net.URL;
 public interface IODFNamespaceID
 {
 
-	public URL getURL();
+	public String getPrefix();
+	public URL    getURL();
 
 }
