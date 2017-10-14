@@ -6,20 +6,22 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
+import com.dm.odf.library.core.ODFAttributeValue;
 import com.dm.odf.library.core.ODFConstants.ODF_ATTRIBUTE_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFElement;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFNode;
+import com.dm.odf.library.interfaces.IODFStyleFontFaceElement;
 
-public abstract class ODFStyleFontFaceElement extends ODFElement
+public abstract class ODFStyleFontFaceElement extends ODFElement implements IODFStyleFontFaceElement
 {
 
 	//==========================================================================
 	// CONSTRUCTEURS
 	//==========================================================================
 
-	protected ODFStyleFontFaceElement()
+	private ODFStyleFontFaceElement()
 	{
 
 		super();
@@ -30,10 +32,17 @@ public abstract class ODFStyleFontFaceElement extends ODFElement
 	// METHODES ABSTRAITES
 	//==========================================================================
 
-	protected abstract IODFAttributeValue getStyleName();
-	protected abstract IODFAttributeValue getFontFamily();
-	protected abstract IODFAttributeValue getFontFamilyGeneric();
-	protected abstract IODFAttributeValue getFontPitch();
+	@Override
+	public abstract IODFAttributeValue getStyleName();
+
+	@Override
+	public abstract IODFAttributeValue getFontFamily();
+
+	@Override
+	public abstract IODFAttributeValue getFontFamilyGeneric();
+
+	@Override
+	public abstract IODFAttributeValue getFontPitch();
 
 	//==========================================================================
 	// METHODES
@@ -87,6 +96,55 @@ public abstract class ODFStyleFontFaceElement extends ODFElement
 	{
 
 		return Collections.unmodifiableList(new ArrayList<>());
+
+	}
+
+	public static final IODFStyleFontFaceElement newInstance(final String styleName,final String fontFamily,final String fontFamilyGeneric,final String fontPitch)
+	{
+
+		return new ODFStyleFontFaceElement()
+		{
+
+			@Override
+			public final IODFAttributeValue getStyleName()
+			{
+
+				return (styleName == null ? "" : styleName.trim()).length() == 0 ? null : ODFAttributeValue.newInstance(styleName.trim());
+
+			}
+
+			@Override
+			public final IODFAttributeValue getFontFamily()
+			{
+
+				return (fontFamily == null ? "" : fontFamily.trim()).length() == 0 ? null : ODFAttributeValue.newInstance(fontFamily.trim());
+
+			}
+
+			@Override
+			public final IODFAttributeValue getFontFamilyGeneric()
+			{
+
+				return (fontFamilyGeneric == null ? "" : fontFamilyGeneric.trim()).length() == 0 ? null : ODFAttributeValue.newInstance(fontFamilyGeneric.trim());
+
+			}
+
+			@Override
+			public final IODFAttributeValue getFontPitch()
+			{
+
+				return (fontPitch == null ? "" : fontPitch.trim()).length() == 0 ? null : ODFAttributeValue.newInstance(fontPitch.trim());
+
+			}
+
+		};
+
+	}
+
+	public static final IODFStyleFontFaceElement newInstance(final String styleName,final String fontFamily)
+	{
+
+		return newInstance(styleName,fontFamily,"","");
 
 	}
 

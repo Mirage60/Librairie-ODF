@@ -1,6 +1,5 @@
 package com.dm.odf.library.core;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Hashtable;
@@ -84,12 +83,14 @@ public abstract class ODFElement extends ODFNode implements IODFElement
 	}
 
 	@Override
-	public final URL getNamespaceURL()
+	public final String getNamespaceURL()
 	{
 
 		final ODF_NAMESPACE_ID namespaceID = this.getNamespaceID();
 
-		return namespaceID == null ? null : namespaceID.getURL();
+		final String url = namespaceID == null ? null : namespaceID.getURL();
+
+		return url == null ? "" : url.trim();
 
 	}
 

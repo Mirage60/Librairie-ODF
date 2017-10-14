@@ -14,7 +14,9 @@ import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_MIME_TYPE_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_NAMESPACE_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_PART_FILE_ID;
-import com.dm.odf.library.elements.ODFParagraphElement;
+import com.dm.odf.library.elements.ODFStyleFontFaceElement;
+import com.dm.odf.library.elements.ODFTextParagraphElement;
+import com.dm.odf.library.elements.OdfTextSequenceDeclElement;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFContent;
 import com.dm.odf.library.interfaces.IODFContentFile;
@@ -262,6 +264,13 @@ public abstract class ODFContentFile extends ODFPartFile implements IODFContentF
 
 			final List<IODFNode> nodes = new ArrayList<>();
 
+			nodes.add(ODFStyleFontFaceElement.newInstance("Mangal1","Mangal"                                        ));
+			nodes.add(ODFStyleFontFaceElement.newInstance("Liberation Serif","'Liberation Serif'","Roman","Variable"));
+			nodes.add(ODFStyleFontFaceElement.newInstance("Liberation Sans","'Liberation Sans'","swiss","variable"  ));
+			nodes.add(ODFStyleFontFaceElement.newInstance("Mangal","Mangal","system","variable"                     ));
+			nodes.add(ODFStyleFontFaceElement.newInstance("Microsoft YaHei","'Microsoft YaHei'","system","variable" ));
+			nodes.add(ODFStyleFontFaceElement.newInstance("SimSun","SimSun","system","variable"                     ));
+
 			return Collections.unmodifiableList(nodes);
 
 		}
@@ -412,7 +421,7 @@ public abstract class ODFContentFile extends ODFPartFile implements IODFContentF
 
 			nodes.add(new TextSequenceDeclarationsElement());
 
-			nodes.add(new ODFParagraphElement()
+			nodes.add(new ODFTextParagraphElement()
 			{
 
 				@Override
@@ -466,6 +475,11 @@ public abstract class ODFContentFile extends ODFPartFile implements IODFContentF
 		{
 
 			final List<IODFNode> nodes = new ArrayList<>();
+
+			nodes.add(OdfTextSequenceDeclElement.newInstance(0,"Illustration"));
+			nodes.add(OdfTextSequenceDeclElement.newInstance(0,"Table"       ));
+			nodes.add(OdfTextSequenceDeclElement.newInstance(0,"Text"        ));
+			nodes.add(OdfTextSequenceDeclElement.newInstance(0,"Drawing"     ));
 
 			return Collections.unmodifiableList(nodes);
 

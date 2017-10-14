@@ -38,12 +38,36 @@ public abstract class ODFAttributeWriter extends ODFWriter implements IODFAttrib
 	public final void write(final OutputStreamWriter writer) throws Exception
 	{
 
+		final ODF_ATTRIBUTE_ID attributeID = this.getAttributeID();
+
+		if (attributeID == null) throw new Exception("Failed to retrieve ODF attribute ID");
+
+		String name = attributeID.getName();
+
+		name = name == null ? "" : name.trim();
+
+		if ("".equals(name)) throw new Exception("Undefined name for ODF attribute ID [" + attributeID.name() + "]");
+
+		final IODFAttributeValue value = this.getValue();
+
+		if (value == null) throw new Exception("Failed to retrieve ODF attribute value");
+
+		String valueStr = value.format();
+
+		valueStr = valueStr == null ? "" : valueStr.trim();
+
 		// Sérialisation
 
 		if (writer == null) throw new IllegalArgumentException("Invalid writer instance");
 
 		try
 		{
+
+			writer.write(" "               );  // << IMPERATIF
+			writer.write(strToXml(name)    );
+			writer.write("=\""             );
+			writer.write(strToXml(valueStr));
+			writer.write("\""              );
 
 		}
 		finally

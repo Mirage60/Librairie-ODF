@@ -1,7 +1,5 @@
 package com.dm.odf.library.core;
 
-import java.net.URL;
-
 import javax.activation.MimeType;
 
 import com.dm.odf.library.interfaces.IODFAttributeID;
@@ -66,9 +64,9 @@ public final class ODFConstants
 	public static enum ODF_MIME_TYPE_ID implements IODFMimeTypeID
 	{
 
-		TEXT          ("text/plain"),
-		XML           ("text/xml"  ),
-		TEXT_DOCUMENT (""          );
+		TEXT          ("text/plain"                             ),
+		XML           ("text/xml"                               ),
+		TEXT_DOCUMENT ("application/vnd.oasis.opendocument.text");
 
 		private MimeType mimeType = null;
 
@@ -152,7 +150,7 @@ public final class ODFConstants
 		CSS3T     ("css3t"     ,"http://www.w3.org/TR/css3-text/"                                     );
 
 		private String prefix = "";
-		private URL url = null;
+		private String url = "";
 
 		@SuppressWarnings("hiding")
 		ODF_NAMESPACE_ID(final String prefix,final String url)
@@ -161,8 +159,8 @@ public final class ODFConstants
 			try
 			{
 
-				this.prefix = prefix == null ? "" : prefix.trim();
-				this.url    = new URL(url == null ? "" : url.trim());
+				this.prefix = prefix == null ? "" : prefix .trim();
+				this.url    = url    == null ? "" : url    .trim();
 
 			}
 			catch (final Throwable exception)
@@ -183,7 +181,7 @@ public final class ODFConstants
 		}
 
 		@Override
-		public final URL getURL()
+		public final String getURL()
 		{
 
 			return this.url;
@@ -210,17 +208,19 @@ public final class ODFConstants
 
 		}
 
-		public static final ODF_NAMESPACE_ID findByURL(final URL url)
+		public static final ODF_NAMESPACE_ID findByURL(final String url)
 		{
 
-			if (url == null) return null;
+			final String key = url == null ? "" : url.trim();
+
+			if ("".equals(url)) return null;
 
 			for (final ODF_NAMESPACE_ID enumValue : ODF_NAMESPACE_ID.values())
 			{
 
 				assert enumValue != null : "Unexpected null enum value";
 
-				if (url.equals(enumValue.getURL())) return enumValue;
+				if (key.equalsIgnoreCase(enumValue.getURL())) return enumValue;
 
 			}
 
@@ -370,12 +370,14 @@ public final class ODFConstants
 
 		// Attributs
 
-		OFFICE_VERSION            (ODF_NAMESPACE_ID.OFFICE ,"version"            ),
-		STYLE_NAME                (ODF_NAMESPACE_ID.STYLE  ,"name"               ),
-		STYLE_FONT_FAMILY_GENERIC (ODF_NAMESPACE_ID.STYLE  ,"font-family-generic"),
-		STYLE_FONT_PITCH          (ODF_NAMESPACE_ID.STYLE  ,"font-pitch"         ),
-		SVG_FONT_FAMILY           (ODF_NAMESPACE_ID.SVG    ,"font-family"        ),
-		TEXT_STYLE_NAME           (ODF_NAMESPACE_ID.TEXT   ,"style-name"         );
+		OFFICE_VERSION             (ODF_NAMESPACE_ID.OFFICE ,"version"              ),
+		STYLE_NAME                 (ODF_NAMESPACE_ID.STYLE  ,"name"                 ),
+		STYLE_FONT_FAMILY_GENERIC  (ODF_NAMESPACE_ID.STYLE  ,"font-family-generic"  ),
+		STYLE_FONT_PITCH           (ODF_NAMESPACE_ID.STYLE  ,"font-pitch"           ),
+		SVG_FONT_FAMILY            (ODF_NAMESPACE_ID.SVG    ,"font-family"          ),
+		TEXT_STYLE_NAME            (ODF_NAMESPACE_ID.TEXT   ,"style-name"           ),
+		TEXT_NAME                  (ODF_NAMESPACE_ID.TEXT   ,"name"                 ),
+		TEXT_DISPLAY_OUTLINE_LEVEL (ODF_NAMESPACE_ID.TEXT   ,"display-outline-level");
 
 		private String prefix = null;
 		private String localName = "";

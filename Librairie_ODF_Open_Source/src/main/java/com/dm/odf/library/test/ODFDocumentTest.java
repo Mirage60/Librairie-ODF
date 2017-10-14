@@ -2,7 +2,9 @@ package com.dm.odf.library.test;
 
 import java.io.File;
 
+import com.dm.odf.library.core.ODFLogger;
 import com.dm.odf.library.core.ODFTextDocument;
+import com.dm.odf.library.interfaces.IODFContentFile;
 import com.dm.odf.library.interfaces.IODFTextDocument;
 
 public final class ODFDocumentTest
@@ -37,7 +39,17 @@ public final class ODFDocumentTest
 
 			final IODFTextDocument document = new ODFTextDocument();
 
+			final IODFContentFile contentFile = document.getContentFile();
+
+			if (contentFile == null) throw new Exception("Failed to retrieve content file instance");
+
+			System.out.println(contentFile.toString());
+			System.out.println();
+
 			document.save(file);
+
+			System.out.println("File [" + file.getAbsolutePath() + "] created OK.");
+			System.out.println();
 
 			System.out.println("Completed OK.");
 			System.out.println();
@@ -48,7 +60,7 @@ public final class ODFDocumentTest
 		catch (final Throwable exception)
 		{
 
-			exception.printStackTrace();
+			ODFLogger.log(exception);
 
 			System.exit(1);
 

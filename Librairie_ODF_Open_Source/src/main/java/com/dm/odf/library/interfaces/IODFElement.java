@@ -1,6 +1,5 @@
 package com.dm.odf.library.interfaces;
 
-import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +11,7 @@ public interface IODFElement extends IODFNode
 {
 
 	public ODF_NAMESPACE_ID                         getNamespaceID();
-	public URL                                      getNamespaceURL();
+	public String                                   getNamespaceURL();
 	public ODF_ELEMENT_ID                           getElementID();
 	public String                                   getPrefix();
 	public String                                   getLocalName();

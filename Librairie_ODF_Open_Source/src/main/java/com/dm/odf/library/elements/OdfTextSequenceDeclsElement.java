@@ -11,15 +11,17 @@ import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFElement;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFNode;
+import com.dm.odf.library.interfaces.IOdfTextSequenceDeclElement;
+import com.dm.odf.library.interfaces.IOdfTextSequenceDeclsElement;
 
-public abstract class ODFParagraphElement extends ODFElement
+public abstract class OdfTextSequenceDeclsElement extends ODFElement implements IOdfTextSequenceDeclsElement
 {
 
 	//==========================================================================
 	// CONSTRUCTEURS
 	//==========================================================================
 
-	protected ODFParagraphElement()
+	protected OdfTextSequenceDeclsElement()
 	{
 
 		super();
@@ -30,7 +32,8 @@ public abstract class ODFParagraphElement extends ODFElement
 	// METHODES ABSTRAITES
 	//==========================================================================
 
-	protected abstract IODFAttributeValue getStyleName();
+	@Override
+	public abstract List<IOdfTextSequenceDeclElement> getElements();
 
 	//==========================================================================
 	// METHODES
@@ -40,23 +43,15 @@ public abstract class ODFParagraphElement extends ODFElement
 	public final ODF_ELEMENT_ID getElementID()
 	{
 
-		return ODF_ELEMENT_ID.TEXT_P;
+		return ODF_ELEMENT_ID.TEXT_SEQUENCE_DECLS;
 
 	}
 
 	@Override
-	public final Map<ODF_ATTRIBUTE_ID,IODFAttributeValue> getAttributeMap() throws Exception
+	public final Map<ODF_ATTRIBUTE_ID,IODFAttributeValue> getAttributeMap()
 	{
 
-		final IODFAttributeValue styleName = this.getStyleName();
-
-		if (styleName == null) throw new Exception("Failed to retrieve style name");
-
-		final Map<ODF_ATTRIBUTE_ID,IODFAttributeValue> attributes = new Hashtable<>();
-
-		attributes.put(ODF_ATTRIBUTE_ID.TEXT_STYLE_NAME,styleName );
-
-		return Collections.unmodifiableMap(attributes);
+		return Collections.unmodifiableMap(new Hashtable<>());
 
 	}
 
@@ -64,7 +59,18 @@ public abstract class ODFParagraphElement extends ODFElement
 	public final List<IODFNode> getNodes()
 	{
 
-		return Collections.unmodifiableList(new ArrayList<>());
+		final List<IOdfTextSequenceDeclElement> elements = this.getElements();
+
+		final List<IODFNode> nodes = new ArrayList<>();
+
+		if ((elements == null ? 0 : elements.size()) > 0)
+		{
+
+			nodes.addAll(elements);
+
+		}
+
+		return Collections.unmodifiableList(nodes);
 
 	}
 

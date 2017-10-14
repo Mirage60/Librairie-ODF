@@ -79,4 +79,31 @@ public abstract class ODFTextContent extends ODFContent implements IODFTextConte
 
 	}
 
+	@Override
+	public final String toString()
+	{
+
+		try
+		{
+
+			final Charset charset = this.getCharset();
+
+			if (charset == null) throw new Exception("Failed to retrieve charset instance");
+
+			final byte[] data = this.getData();
+
+			return (data == null ? 0 : data.length) == 0 ? "" : new String(data,charset);
+
+		}
+		catch (final Throwable exception)
+		{
+
+			ODFLogger.log(exception);
+
+			return "";
+
+		}
+
+	}
+
 }

@@ -1,7 +1,5 @@
 package com.dm.odf.library.core;
 
-import java.net.URL;
-
 import com.dm.odf.library.core.ODFConstants.ODF_NAMESPACE_ID;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFKeywordProvider;
@@ -64,10 +62,6 @@ public abstract class ODFAttributeValue implements IODFAttributeValue
 
 		if (value == null) throw new IllegalArgumentException("Invalid namespace ID");
 
-		final URL url = value.getURL();
-
-		if (url == null) throw new IllegalArgumentException("Failed to retrieve URL for namespace ID [" + value.name() + "]");
-
 		return new ODFAttributeValue()
 		{
 
@@ -75,9 +69,13 @@ public abstract class ODFAttributeValue implements IODFAttributeValue
 			public final String format()
 			{
 
-				final String text = url.toString();
+				String url = value.getURL();
 
-				return text == null ? "" : text.trim();
+				url = url == null ? "" : url.trim();
+
+				if ("".equals(url)) throw new IllegalArgumentException("Undefined URL for namespace ID [" + value.name() + "]");
+
+				return url;
 
 			}
 
@@ -100,6 +98,24 @@ public abstract class ODFAttributeValue implements IODFAttributeValue
 				final String text = value.getKeyword();
 
 				return text == null ? "" : text.trim();
+
+			}
+
+		};
+
+	}
+
+	public static final IODFAttributeValue newInstance(final int value)
+	{
+
+		return new ODFAttributeValue()
+		{
+
+			@Override
+			public final String format()
+			{
+
+				return String.valueOf(value);
 
 			}
 

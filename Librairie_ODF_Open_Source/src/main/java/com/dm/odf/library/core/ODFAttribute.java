@@ -2,7 +2,6 @@ package com.dm.odf.library.core;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStreamWriter;
-import java.net.URL;
 import java.nio.charset.Charset;
 
 import com.dm.odf.library.core.ODFConstants.ODF_ATTRIBUTE_ID;
@@ -50,12 +49,14 @@ public abstract class ODFAttribute implements IODFAttribute
 	}
 
 	@Override
-	public final URL getNamespaceURL()
+	public final String getNamespaceURL()
 	{
 
 		final ODF_NAMESPACE_ID namespaceID = this.getNamespaceID();
 
-		return namespaceID == null ? null : namespaceID.getURL();
+		final String url = namespaceID == null ? null : namespaceID.getURL();
+
+		return url == null ? "" : url.trim();
 
 	}
 
@@ -198,7 +199,7 @@ public abstract class ODFAttribute implements IODFAttribute
 		catch (final Throwable exception)
 		{
 
-			exception.printStackTrace();
+			ODFLogger.log(exception);
 
 			return "";
 

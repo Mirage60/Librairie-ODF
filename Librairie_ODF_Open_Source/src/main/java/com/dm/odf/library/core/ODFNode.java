@@ -108,7 +108,7 @@ public abstract class ODFNode implements IODFNode
 		catch (final Throwable exception)
 		{
 
-			exception.printStackTrace();
+			ODFLogger.log(exception);
 
 			return "";
 

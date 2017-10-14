@@ -50,4 +50,16 @@ public abstract class ODFPartFile implements IODFPartFile
 
 	}
 
+	@Override
+	public final String toString()
+	{
+
+		final IODFContent content = this.getContent();
+
+		final String text = content == null ? "" : content.toString();
+
+		return text == null ? "" : text.trim();
+
+	}
+
 }
