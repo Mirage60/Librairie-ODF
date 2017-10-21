@@ -1,7 +1,7 @@
 package com.dm.odf.library.xml;
 
 import com.dm.odf.library.core.ODFWriter;
-import com.dm.odf.library.interfaces.IODFXmlWriter;
+import com.dm.odf.library.interfaces.xml.IODFXmlWriter;
 
 public abstract class ODFXmlWriter extends ODFWriter implements IODFXmlWriter
 {

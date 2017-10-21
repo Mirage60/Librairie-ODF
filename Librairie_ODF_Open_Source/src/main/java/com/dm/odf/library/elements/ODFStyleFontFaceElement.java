@@ -12,7 +12,7 @@ import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFElement;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFNode;
-import com.dm.odf.library.interfaces.IODFStyleFontFaceElement;
+import com.dm.odf.library.interfaces.elements.IODFStyleFontFaceElement;
 
 public abstract class ODFStyleFontFaceElement extends ODFElement implements IODFStyleFontFaceElement
 {

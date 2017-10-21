@@ -8,6 +8,6 @@ public interface IODFElementID
 	public ODF_NAMESPACE_ID getNamespaceID();
 	public String           getPrefix();
 	public String           getLocalName();
-	public String           getName();
+	public String           getElementName();
 
 }

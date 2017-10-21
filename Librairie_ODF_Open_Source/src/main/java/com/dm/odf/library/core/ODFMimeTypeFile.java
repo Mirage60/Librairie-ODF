@@ -10,7 +10,8 @@ import com.dm.odf.library.core.ODFConstants.ODF_MIME_TYPE_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_PART_FILE_ID;
 import com.dm.odf.library.interfaces.IODFContent;
 import com.dm.odf.library.interfaces.IODFDocument;
-import com.dm.odf.library.interfaces.IODFMimeTypeFile;
+import com.dm.odf.library.interfaces.parts.IODFMimeTypeFile;
+import com.dm.odf.library.parts.ODFPartFile;
 
 public abstract class ODFMimeTypeFile extends ODFPartFile implements IODFMimeTypeFile
 {

@@ -11,7 +11,7 @@ import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFElement;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFNode;
-import com.dm.odf.library.interfaces.IODFTextNotesConfigurationElement;
+import com.dm.odf.library.interfaces.elements.IODFTextNotesConfigurationElement;
 
 public abstract class ODFTextNotesConfigurationElement extends ODFElement implements IODFTextNotesConfigurationElement
 {

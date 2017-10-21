@@ -85,12 +85,12 @@ public abstract class ODFAttribute implements IODFAttribute
 	}
 
 	@Override
-	public final String getName()
+	public final String getAttributeName()
 	{
 
 		final ODF_ATTRIBUTE_ID attributeID = this.getAttributeID();
 
-		final String name = attributeID == null ? null : attributeID.getName();
+		final String name = attributeID == null ? null : attributeID.getAttributeName();
 
 		return name == null ? "" : name.trim();
 

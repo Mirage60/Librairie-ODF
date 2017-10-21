@@ -4,8 +4,8 @@ import java.io.File;
 
 import com.dm.odf.library.core.ODFLogger;
 import com.dm.odf.library.core.ODFTextDocument;
-import com.dm.odf.library.interfaces.IODFContentFile;
 import com.dm.odf.library.interfaces.IODFTextDocument;
+import com.dm.odf.library.interfaces.parts.IODFContentFile;
 
 public final class ODFDocumentTest
 {

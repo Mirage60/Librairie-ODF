@@ -5,7 +5,7 @@ import java.nio.charset.Charset;
 
 import com.dm.odf.library.core.ODFTextContent;
 import com.dm.odf.library.interfaces.IODFElement;
-import com.dm.odf.library.interfaces.IODFXmlContent;
+import com.dm.odf.library.interfaces.xml.IODFXmlContent;
 
 public abstract class ODFXmlContent extends ODFTextContent implements IODFXmlContent
 {

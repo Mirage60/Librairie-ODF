@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.dm.odf.library.core.ODFConstants.ODF_ATTRIBUTE_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
+import com.dm.odf.library.interfaces.xml.IODFXmlWriter;
 
 public interface IODFElementWriter extends IODFXmlWriter
 {

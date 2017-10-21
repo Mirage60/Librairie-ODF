@@ -9,12 +9,16 @@ import javax.activation.MimeType;
 import com.dm.odf.library.core.ODFConstants.ODF_DOCUMENT_TYPE_ID;
 import com.dm.odf.library.core.ODFConstants.ODF_MIME_TYPE_ID;
 import com.dm.odf.library.interfaces.IODFContent;
-import com.dm.odf.library.interfaces.IODFContentFile;
 import com.dm.odf.library.interfaces.IODFDocument;
-import com.dm.odf.library.interfaces.IODFMetaFile;
-import com.dm.odf.library.interfaces.IODFMimeTypeFile;
-import com.dm.odf.library.interfaces.IODFSettingsFile;
-import com.dm.odf.library.interfaces.IODFStylesFile;
+import com.dm.odf.library.interfaces.parts.IODFContentFile;
+import com.dm.odf.library.interfaces.parts.IODFMetaFile;
+import com.dm.odf.library.interfaces.parts.IODFMimeTypeFile;
+import com.dm.odf.library.interfaces.parts.IODFSettingsFile;
+import com.dm.odf.library.interfaces.parts.IODFStylesFile;
+import com.dm.odf.library.parts.ODFContentFile;
+import com.dm.odf.library.parts.ODFMetaFile;
+import com.dm.odf.library.parts.ODFSettingsFile;
+import com.dm.odf.library.parts.ODFStylesFile;
 
 public abstract class ODFDocument implements IODFDocument
 {

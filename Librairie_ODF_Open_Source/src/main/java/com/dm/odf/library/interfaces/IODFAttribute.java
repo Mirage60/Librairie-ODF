@@ -15,7 +15,7 @@ public interface IODFAttribute
 	public ODF_ATTRIBUTE_ID    getAttributeID();
 	public String              getPrefix();
 	public String              getLocalName();
-	public String              getName();
+	public String              getAttributeName();
 	public IODFAttributeValue  getValue();
 	public IODFAttributeWriter getWriter();
 

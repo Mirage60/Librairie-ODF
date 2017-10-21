@@ -11,7 +11,7 @@ import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFElement;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFNode;
-import com.dm.odf.library.interfaces.IODFStyleTablePropertiesElement;
+import com.dm.odf.library.interfaces.elements.IODFStyleTablePropertiesElement;
 
 public abstract class ODFStyleTablePropertiesElement extends ODFElement implements IODFStyleTablePropertiesElement
 {

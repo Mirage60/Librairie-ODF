@@ -12,7 +12,7 @@ import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFElement;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFNode;
-import com.dm.odf.library.interfaces.IODFTextSequenceDeclElement;
+import com.dm.odf.library.interfaces.elements.IODFTextSequenceDeclElement;
 
 public abstract class ODFTextSequenceDeclElement extends ODFElement implements IODFTextSequenceDeclElement
 {

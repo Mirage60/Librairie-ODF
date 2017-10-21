@@ -6,5 +6,6 @@ public interface IODFMimeTypeID
 {
 
 	public MimeType getMimeType();
+	public String   getFileExtension();
 
 }

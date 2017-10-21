@@ -43,7 +43,7 @@ public abstract class ODFAttributeWriter extends ODFXmlWriter implements IODFAtt
 
 		if (attributeID == null) throw new Exception("Failed to retrieve ODF attribute ID");
 
-		String name = attributeID.getName();
+		String name = attributeID.getAttributeName();
 
 		name = name == null ? "" : name.trim();
 

@@ -52,7 +52,7 @@ public abstract class ODFElementWriter extends ODFXmlWriter implements IODFEleme
 
 		if (elementID == null) throw new Exception("Failed to retrieve ODF element ID");
 
-		String name = elementID.getName();
+		String name = elementID.getElementName();
 
 		name = name == null ? "" : name.trim();
 

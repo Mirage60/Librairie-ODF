@@ -71,12 +71,12 @@ public abstract class ODFElement extends ODFNode implements IODFElement
 	}
 
 	@Override
-	public final String getName()
+	public final String getElementName()
 	{
 
 		final ODF_ELEMENT_ID elementID = this.getElementID();
 
-		final String name = elementID == null ? null : elementID.getName();
+		final String name = elementID == null ? null : elementID.getElementName();
 
 		return name == null ? "" : name.trim();
 

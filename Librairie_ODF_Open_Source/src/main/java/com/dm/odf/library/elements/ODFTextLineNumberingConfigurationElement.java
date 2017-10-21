@@ -11,7 +11,7 @@ import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFElement;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFNode;
-import com.dm.odf.library.interfaces.IODFTextLineNumberingConfigurationElement;
+import com.dm.odf.library.interfaces.elements.IODFTextLineNumberingConfigurationElement;
 
 public abstract class ODFTextLineNumberingConfigurationElement extends ODFElement implements IODFTextLineNumberingConfigurationElement
 {

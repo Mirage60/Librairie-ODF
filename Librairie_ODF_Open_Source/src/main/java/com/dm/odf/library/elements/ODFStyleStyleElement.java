@@ -11,7 +11,7 @@ import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFElement;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFNode;
-import com.dm.odf.library.interfaces.IODFStyleStyleElement;
+import com.dm.odf.library.interfaces.elements.IODFStyleStyleElement;
 
 public abstract class ODFStyleStyleElement extends ODFElement implements IODFStyleStyleElement
 {
@@ -35,7 +35,7 @@ public abstract class ODFStyleStyleElement extends ODFElement implements IODFSty
 	public final ODF_ELEMENT_ID getElementID()
 	{
 
-		return ODF_ELEMENT_ID.STYLE_DEFAULT_STYLE;
+		return ODF_ELEMENT_ID.STYLE_STYLE;
 
 	}
 

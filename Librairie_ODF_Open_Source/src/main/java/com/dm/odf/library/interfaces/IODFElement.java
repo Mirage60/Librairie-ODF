@@ -15,7 +15,7 @@ public interface IODFElement extends IODFNode
 	public ODF_ELEMENT_ID                           getElementID();
 	public String                                   getPrefix();
 	public String                                   getLocalName();
-	public String                                   getName();
+	public String                                   getElementName();
 	public Map<ODF_ATTRIBUTE_ID,IODFAttributeValue> getAttributeMap() throws Exception;
 	public List<IODFAttribute>                      getAttributes() throws Exception;
 	public List<IODFNode>                           getNodes() throws Exception;

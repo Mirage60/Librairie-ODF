@@ -11,7 +11,7 @@ import com.dm.odf.library.core.ODFConstants.ODF_ELEMENT_ID;
 import com.dm.odf.library.core.ODFElement;
 import com.dm.odf.library.interfaces.IODFAttributeValue;
 import com.dm.odf.library.interfaces.IODFNode;
-import com.dm.odf.library.interfaces.IODFStyleParagraphPropertiesElement;
+import com.dm.odf.library.interfaces.elements.IODFStyleParagraphPropertiesElement;
 
 public abstract class ODFStyleParagraphPropertiesElement extends ODFElement implements IODFStyleParagraphPropertiesElement
 {

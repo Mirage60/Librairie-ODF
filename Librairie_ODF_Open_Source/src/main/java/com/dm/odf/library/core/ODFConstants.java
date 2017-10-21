@@ -66,20 +66,23 @@ public final class ODFConstants
 	public static enum ODF_MIME_TYPE_ID implements IODFMimeTypeID
 	{
 
-		TEXT          ("text/plain"                             ),
-		XML           ("text/xml"                               ),
-		TEXT_DOCUMENT ("application/vnd.oasis.opendocument.text");
+		TEXT          ("text/plain"                                     ,"txt"),
+		XML           ("text/xml"                                       ,"xml"),
+		TEXT_DOCUMENT ("application/vnd.oasis.opendocument.text"        ,"odt"),
+		SPREADSHEET   ("application/vnd.oasis.opendocument.spreadsheet" ,"ods");
 
 		private MimeType mimeType = null;
+		private String fileExtension = "";
 
 		@SuppressWarnings("hiding")
-		ODF_MIME_TYPE_ID(final String mimeType)
+		ODF_MIME_TYPE_ID(final String mimeType,final String fileExtension)
 		{
 
 			try
 			{
 
-				this.mimeType = new MimeType(mimeType == null ? "" : mimeType.trim());
+				this.mimeType      = new MimeType(mimeType == null ? "" : mimeType.trim());
+				this.fileExtension = fileExtension == null ? "" : fileExtension.trim();
 
 			}
 			catch (final Throwable exception)
@@ -96,6 +99,14 @@ public final class ODFConstants
 		{
 
 			return this.mimeType;
+
+		}
+
+		@Override
+		public final String getFileExtension()
+		{
+
+			return this.fileExtension;
 
 		}
 
@@ -338,7 +349,7 @@ public final class ODFConstants
 		}
 
 		@Override
-		public final String getName()
+		public final String getElementName()
 		{
 
 			final String prefix = this.getPrefix();
@@ -518,7 +529,7 @@ public final class ODFConstants
 		}
 
 		@Override
-		public final String getName()
+		public final String getAttributeName()
 		{
 
 			return "".equals(this.localName) ? "" : ("".equals(this.prefix) ? "" : this.prefix + ":") + this.localName;
