@@ -1,7 +1,7 @@
 Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
 Maven home: D:\Git_Oxygen\Librairie-ODF\Librairie_ODF_Open_Source\EMBEDDED
-Java version: 1.8.0_121, vendor: Oracle Corporation
-Java home: C:\Program Files\Java\jdk1.8.0_121\jre
+Java version: 1.8.0_151, vendor: Oracle Corporation
+Java home: C:\Program Files\Java\jdk1.8.0_151\jre
 Default locale: fr_FR, platform encoding: Cp1252
 OS name: "windows 7", version: "6.1", arch: "amd64", family: "dos"
 [DEBUG] Created new class realm maven.api
